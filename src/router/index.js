@@ -3,6 +3,7 @@ import Home from "./../views/Home.vue";
 import MealsByName from "./../views/MealsByName.vue";
 import MealsByIngredient from "./../views/MealsByIngredient.vue";
 import MealsByLetter from "./../views/MealsByLetter.vue";
+import MealsDetails from "./../views/MealsDetails.vue";
 
 import DefaultLayout from "./../layouts/DefaultLayout.vue";
 import GuestLayout from "./../layouts/GuestLayout.vue";
@@ -13,15 +14,11 @@ const routes = [
     component: DefaultLayout,
     children: [
       {
-        path: "/",
-        name: "home",
-        component: Home,
-      },
-      {
-        path: "/by-name/:name?",
+        path: "/:name?",
         name: "byName",
         component: MealsByName,
       },
+      
       {
         path: "/by-ingredient/:ingredient?",
         name: "byIngredient",
@@ -32,6 +29,11 @@ const routes = [
         name: "byLetter",
         component: MealsByLetter,
       },
+      {
+        path: "/meal/:id",
+        name: "mealDetails",
+        component: MealsDetails
+      }
     ],
   },
   {
